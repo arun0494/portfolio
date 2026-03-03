@@ -1,0 +1,19 @@
+// Dynamic Projects Injection
+        const projectsGrid = document.getElementById('projects-grid');
+        const totalProjects = 9;
+
+        for (let i = 1; i <= totalProjects; i++) {
+            if (i === 2) continue; // Project 2 ko skip karne ke liye
+            const projectCard = `
+                <div class="group" data-aos="fade-up">
+                    <div class="relative rounded-lg shadow-xl shadow-black/40 bg-bg-card overflow-visible">
+                        <img src="thumbnail${i}.png" alt="Project ${i}" class="w-full h-auto display-block rounded-lg transition-transform duration-500 group-hover:scale-[1.02]" onerror="this.src='https://picsum.photos/seed/thumb${i}/800/450?blur=2'; this.style.opacity='0.3';">
+                        <div class="mt-4 px-2">
+                            <span class="text-accent-blue text-[10px] font-bold tracking-widest uppercase block mb-1">YouTube Design</span>
+                            <h3 class="text-lg font-display font-bold text-white group-hover:text-accent-blue transition-colors uppercase">Project ${i}</h3>
+                        </div>
+                    </div>
+                </div>
+            `;
+            projectsGrid.innerHTML += projectCard;
+        }
